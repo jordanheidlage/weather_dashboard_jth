@@ -23,7 +23,7 @@ function displayWeather(cityName) {
         })
         .then(function (currentData) {
 
-            // console.log(currentData)
+            console.log(currentData)
             var fiveDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.coord.lat}&lon=${currentData.coord.lon}&appid=${api}&units=imperial
             `
             fetch(fiveDayUrl)
@@ -31,7 +31,7 @@ function displayWeather(cityName) {
                     return response.json()
                 })
                 .then(function (weatherData) {
-                    // console.log(weatherData)
+                    console.log(weatherData)
 
                     currentWeather(weatherData.current, currentData.name)
 
@@ -45,7 +45,7 @@ function displayWeather(cityName) {
 }
 
 function currentWeather(current, city) {
-    // console.log(current)
+    console.log(current)
     currentWeatherContainer.innerHTML = '';
 
     var container = document.createElement('div')
@@ -75,7 +75,7 @@ function currentWeather(current, city) {
     container.append(heading, tempEl, windEl, humidityEl, uviEL)
     currentWeatherContainer.append(container);
 }
-function fiveDayforecast(forecast) {
+function fiveDayforecast(daily, forecast) {
     console.log(forecast)
     forecastContainer.innerHTML = '';
 
@@ -91,13 +91,18 @@ function fiveDayforecast(forecast) {
         var humidityEl = document.createElement('p')
 
         //   add class attributes here for all styling
-
         forecastCol.setAttribute('class', 'col-sm-2')
-        forecastCard = setAttribute('class', 'card')
-        forecastBody = setAttribute('class', 'card-body')
-        heading = setAttribute('class', 'display-5 fw-bold')
+        // forecastBody = setAttribute('class', 'card-body')
+        heading.setAttribute('class', 'display-5 fw-bold')
 
         //   add all the text content for the elements
+
+        var dailyDate = moment.unix(daily.dt).format("MM/DD/YYYY")
+        var iconImage = document.createElement("img")
+        iconImage.setAttribute("src", `http://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`)
+        heading.textContent = city + " " + dailyDate
+        heading.append(iconImage)
+
         tempEl.textContent = "Wind: " + daily.temp
         windEl.textContent = "Wind: " + daily.wind_speed
         humidityEl.textContent = "Wind: " + daily.humidity
