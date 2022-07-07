@@ -15,9 +15,9 @@ This application uses the OpenWeather One Call API to retrieve weather data for 
 
 ## Usage
 
-To use this website, simply enter what city you're searching for in the search bar below the title "Search for a City" to display your weather data.
+To use this website, simply enter what city you're searching for in the search bar below the title "Search for a City" to display your weather data. The current weather conditions, including temperature, weather, humidity, and wind speed will appear for the next five days.
 
-  <!-- ![ReadMe Image](/assets/ReadMe.png) -->
+  ![ReadMe Image](/assets/ReadMe.png)
 
 
 ## Credits
@@ -25,12 +25,9 @@ To use this website, simply enter what city you're searching for in the search b
 *  Jordan Heidlage:  https://github.com/jordanheidlage
 
 
-API's Used:
-*  https://www.themealdb.com/api.php
-*  https://www.thecocktaildb.com/api.php
+API Used:
+*  https://api.openweathermap.org
 
-*  https://tailwindcss.com/
-*  https://fonts.google.com/
 
 ## License
 
