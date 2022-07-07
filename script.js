@@ -45,7 +45,7 @@ function displayWeather(cityName) {
 }
 
 function currentWeather(current, city) {
-    console.log(current)
+    // console.log(current)
     currentWeatherContainer.innerHTML = '';
 
     var container = document.createElement('div')
@@ -75,13 +75,16 @@ function currentWeather(current, city) {
     container.append(heading, tempEl, windEl, humidityEl, uviEL)
     currentWeatherContainer.append(container);
 }
-function fiveDayforecast(daily, forecast) {
-    console.log(forecast)
+function fiveDayforecast(daily) {
+    console.log(daily)
     forecastContainer.innerHTML = '';
+    
+
 
     for (var i = 1; i < 6; i++) {
         console.log(i)
 
+ 
         var forecastCol = document.createElement('div')
         var forecastCard = document.createElement('div')
         var forecastBody = document.createElement('div')
@@ -91,27 +94,28 @@ function fiveDayforecast(daily, forecast) {
         var humidityEl = document.createElement('p')
 
         //   add class attributes here for all styling
-        forecastCol.setAttribute('class', 'col-sm-2')
-        // forecastBody = setAttribute('class', 'card-body')
-        heading.setAttribute('class', 'display-5 fw-bold')
+        forecastCol.setAttribute('class', 'col-md-2')
+        forecastCard.setAttribute('class', 'card')
+        forecastBody.setAttribute('class', 'card-body')
+        // heading.setAttribute('class', 'display-5 fw-bold')
 
         //   add all the text content for the elements
 
-        var dailyDate = moment.unix(daily.dt).format("MM/DD/YYYY")
+        var dailyDate = moment.unix(daily[i].dt).format("MM/DD/YYYY")
         var iconImage = document.createElement("img")
-        iconImage.setAttribute("src", `http://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`)
-        heading.textContent = city + " " + dailyDate
+        iconImage.setAttribute("src", `http://openweathermap.org/img/wn/${daily[i].weather[0].icon}.png`)
+        heading.textContent = dailyDate
         heading.append(iconImage)
 
-        tempEl.textContent = "Wind: " + daily.temp
-        windEl.textContent = "Wind: " + daily.wind_speed
-        humidityEl.textContent = "Wind: " + daily.humidity
+        tempEl.textContent = "Temp: " + daily[i].temp.max; 
+        windEl.textContent = "Wind: " + daily[i].wind_speed; 
+        humidityEl.textContent = "Humidity: " + daily[i].humidity;
 
 
         // append the elements in the correct order. works in reverse
 
-        container.append(heading,tempEl, windEl, humidityEl)
-        forecastContainer.append(container);
+        forecastCol.append(heading,tempEl, windEl, humidityEl)
+        forecastContainer.append(forecastCol);
     }
 }
 
