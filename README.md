@@ -1,7 +1,6 @@
 
 # Server-Side APIs: Weather Dashboard?
 
-<!-- Live Link:  https://jordanheidlage.github.io/whatsForDinner/ -->
 
 ## Description
 
