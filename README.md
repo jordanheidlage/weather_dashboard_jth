@@ -16,7 +16,7 @@ This application uses the OpenWeather One Call API to retrieve weather data for 
 
 To use this website, simply enter what city you're searching for in the search bar below the title "Search for a City" to display your weather data. The current weather conditions, including temperature, weather, humidity, and wind speed will appear for the next five days.
 
-  ![ReadMe Image](/assets/ReadMe.png)
+  ![ReadMe Image](./assets/Screen%20Shot%202022-10-30%20at%2012.47.37%20PM.png)
 
 
 ## Credits
